@@ -1,0 +1,142 @@
+/* ===== FONTES ===== */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@400;600;700&display=swap');
+
+/* ===== BASE ===== */
+body {
+  background-color: #2a2d35; /* cinza escuro */
+  color: #ffffff;
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== LINKS ===== */
+a {
+  font-weight: 600;
+  color: #CFF250; /* verde neon */
+  text-decoration: none;
+}
+a:hover {
+  color: #ffffff;
+}
+
+/* ===== TÍTULOS ===== */
+h1, h2, h3, h4, h5 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; color: #CFF250; }
+h3 { font-size: 1.5rem; color: #CFF250; }
+h4 { font-size: 1.25rem; color: #CFF250; }
+
+/* ===== NAVBAR ===== */
+.navbar .nav-link.active {
+  color: #CFF250 !important;
+}
+.navbar .nav-link:hover {
+  color: #ffffff !important;
+}
+
+/* ===== BOTÕES CTA ===== */
+.btn-success {
+  background-color: #CFF250;
+  color: #212226;
+  border: none;
+  font-weight: bold;
+}
+.btn-success:hover {
+  background-color: transparent;
+  color: #CFF250;
+  border: 1px solid #CFF250;
+}
+.btn-outline-success:hover {
+  background-color: #CFF250;
+  color: #212226;
+}
+
+/* ===== SEÇÕES ===== */
+section {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+/* ===== CARDS ===== */
+.card {
+  border: none;
+  background-color: #2d2e32;
+  color: #fff;
+}
+.card-title {
+  color: #CFF250;
+}
+.card img {
+  border-radius: 8px 8px 0 0;
+}
+
+/* ===== FORMULÁRIO ===== */
+form {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+form .form-label {
+  font-weight: bold;
+  color: #212226;
+}
+form .btn {
+  background-color: #CFF250;
+  color: #212226;
+  font-weight: bold;
+}
+form .btn:hover {
+  background-color: #212226;
+  color: #CFF250;
+  border: 1px solid #CFF250;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 60px;
+  border-top: 1px solid #CFF250;
+}
+footer a {
+  color: #CFF250;
+}
+footer a:hover {
+  color: #ffffff;
+}
+
+/* ===== RESPONSIVIDADE EXTRA ===== */
+@media (max-width: 576px) {
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  p  { font-size: 0.9rem; }
+}
+
+
+/* Força todos os elementos que usam .text-success e .btn-success para o mesmo verde */
+.text-success,
+.btn-success,
+.btn-outline-success,
+.nav-link.active {
+  color: #CFF250 !important;
+}
+
+.btn-success {
+  background-color: #CFF250 !important;
+  border-color: #CFF250 !important;
+  color: #212226 !important;
+}
+
+.btn-success:hover,
+.btn-outline-success:hover {
+  background-color: #212226 !important;
+  color: #CFF250 !important;
+  border: 1px solid #CFF250 !important;
+}
