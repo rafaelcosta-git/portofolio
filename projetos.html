@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jane Doe | Projetos</title>
-  
- <!-- Meta -->
+
+  <!-- Meta -->
   <meta name="description" content="Portfólio de Jane Doe, desenvolvedora web apaixonada por criar experiências digitais envolventes e intuitivas. Conheça meus projetos e serviços.">
   <meta name="keywords" content="Jane Doe, desenvolvedora web, web developer, frontend, back-end, UX/UI, portfólio, projetos web, serviços de desenvolvimento web">
   <meta name="author" content="Jane Doe">
@@ -15,6 +15,9 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Lightbox2 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
 
   <!-- CSS Custom -->
   <link rel="stylesheet" href="css/style.css">
@@ -52,43 +55,58 @@
 
   <!-- Conteúdo -->
   <main class="container mt-5 pt-5">
-    <h1 class="text-success mb-4">Projetos</h1>
-    <div class="row g-4">
+    <h1 class="text-success mb-4 text-center">Galeria de Projetos</h1>
 
-      <!-- Frontend -->
-      <div class="col-md-4" id="frontend">
-        <div class="card bg-dark text-light h-100 shadow">
-          <img src="imagens/images (1).jpeg" class="card-img-top" alt="Frontend">
-          <div class="card-body">
-            <h5 class="card-title text-success">Frontend</h5>
-            <p class="card-text">Interfaces modernas e responsivas usando HTML, CSS e JavaScript.</p>
+    <!-- Galeria Dinâmica -->
+    <section class="mb-5 text-center">
+      <div id="gallery" class="d-flex flex-wrap justify-content-center gap-4">
+        <!-- Imagens serão carregadas via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Simulador de Orçamento -->
+    <section id="orcamento" class="bg-light text-dark p-4 rounded shadow mb-5">
+      <h2 class="text-success text-center mb-4">Simulador de Orçamento</h2>
+      <form id="orcamentoForm">
+        <div class="mb-3">
+          <label for="tipoSite" class="form-label">Tipo de Site:</label>
+          <select id="tipoSite" class="form-select" required>
+            <option value="">Selecione...</option>
+            <option value="1000">Landing Page (€1000)</option>
+            <option value="2000">Website Institucional (€2000)</option>
+            <option value="3000">Loja Online (€3000)</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Funcionalidades Extras:</label><br>
+          <div class="form-check form-check-inline">
+            <input type="checkbox" id="seo" value="300" class="form-check-input">
+            <label class="form-check-label" for="seo">Otimização SEO (+€300)</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="checkbox" id="blog" value="400" class="form-check-input">
+            <label class="form-check-label" for="blog">Blog (+€400)</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="checkbox" id="multilingua" value="500" class="form-check-input">
+            <label class="form-check-label" for="multilingua">Multilíngue (+€500)</label>
           </div>
         </div>
-      </div>
 
-      <!-- Backend -->
-      <div class="col-md-4" id="backend">
-        <div class="card bg-dark text-light h-100 shadow">
-          <img src="imagens/images.jpeg" class="card-img-top" alt="Backend">
-          <div class="card-body">
-            <h5 class="card-title text-success">Back-end</h5>
-            <p class="card-text">Soluções robustas com Node.js, PHP e bases de dados.</p>
-          </div>
+        <div class="mb-3">
+          <label for="prazo" class="form-label">Prazo (em semanas):</label>
+          <input type="number" id="prazo" class="form-control" min="1" max="12" required>
         </div>
-      </div>
 
-      <!-- UX/UI -->
-      <div class="col-md-4" id="uxui">
-        <div class="card bg-dark text-light h-100 shadow">
-          <img src="imagens/images (2).jpeg" class="card-img-top" alt="UX/UI">
-          <div class="card-body">
-            <h5 class="card-title text-success">UX/UI</h5>
-            <p class="card-text">Experiências de utilizador envolventes e design intuitivo.</p>
-          </div>
+        <button type="submit" id="calcularBtn" class="btn btn-success">Calcular Orçamento</button>
+
+        <div class="mt-4">
+          <h4 class="text-success">Valor Estimado:</h4>
+          <p id="resultado" class="fs-4 fw-bold">€0</p>
         </div>
-      </div>
-
-    </div>
+      </form>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -102,7 +120,29 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+ <script src="js/validacao.js"></script>
+
+  <script>
+    const galleryData = [
+      { thumb: 'imagens/projeto1_thumb.jpg', full: 'imagens/projeto1.jpg', title: 'Projeto 1 - Website institucional' },
+      { thumb: 'imagens/projeto2_thumb.jpg', full: 'imagens/projeto2.jpg', title: 'Projeto 2 - Aplicativo responsivo' },
+      { thumb: 'imagens/projeto3_thumb.jpg', full: 'imagens/projeto3.jpg', title: 'Projeto 3 - Loja virtual' },
+      { thumb: 'imagens/projeto4_thumb.jpg', full: 'imagens/projeto4.jpg', title: 'Projeto 4 - Dashboard interativo' }
+    ];
+
+    const galleryContainer = document.getElementById('gallery');
+    galleryData.forEach(image => {
+      const item = document.createElement('a');
+      item.href = image.full;
+      item.setAttribute('data-lightbox', 'gallery');
+      item.setAttribute('data-title', image.title);
+      item.innerHTML = `<img src="${image.thumb}" alt="${image.title}" class="img-fluid rounded shadow" style="width:250px; height:auto;">`;
+      galleryContainer.appendChild(item);
+    });
+  </script>
+
 </body>
 </html>

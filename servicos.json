@@ -1,0 +1,24 @@
+{
+  "servicos": [
+    {
+      "titulo": "Desenvolvimento Web",
+      "descricao": "Construo sites e aplicações web responsivas e de alto desempenho.",
+      "imagem": "imagens/projeto1_thumb.jpg"
+    },
+    {
+      "titulo": "Design de UX/UI",
+      "descricao": "Crio designs intuitivos e experiências de utilizador envolventes.",
+      "imagem": "imagens/projeto2_thumb.jpg"
+    },
+    {
+      "titulo": "Desenvolvimento Mobile",
+      "descricao": "Desenvolvo aplicações móveis nativas e multiplataforma.",
+      "imagem": "imagens/projeto3_thumb.jpg"
+    },
+    {
+      "titulo": "Integração Back-end",
+      "descricao": "Implemento soluções back-end robustas e seguras.",
+      "imagem": "imagens/projeto4_thumb.jpg"
+    }
+  ]
+}

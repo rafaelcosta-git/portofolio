@@ -140,3 +140,32 @@ footer a:hover {
   color: #CFF250 !important;
   border: 1px solid #CFF250 !important;
 }
+
+.service-details {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #CFF250;
+  border-radius: 4px;
+  background-color: #212226;
+}
+
+.service-details h3 {
+  color: #CFF250;
+  margin-bottom: 1rem;
+}
+
+.service-details p {
+  color: #fff;
+}
+
+.list-group-item-action {
+  background-color: #CFF250;
+  color: #212226;
+  border: none;
+  font-weight: 500;
+}
+
+.list-group-item-action:hover {
+  background-color: #AADD30;
+  color: #000;
+}

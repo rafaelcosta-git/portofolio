@@ -6,8 +6,8 @@
   <title>Jane Doe | Contactos</title>
 
   <!-- Meta -->
-  <meta name="description" content="Entre em contacto com Jane Doe, desenvolvedora web. Formulário de contacto, WhatsApp, email e redes sociais.">
-  <meta name="keywords" content="Jane Doe, contacto, desenvolvedora web, web developer, email, telefone, whatsapp">
+  <meta name="description" content="Entre em contacto com Jane Doe, desenvolvedora web. Formulário de contacto, WhatsApp, email e mapa interativo.">
+  <meta name="keywords" content="Jane Doe, contacto, desenvolvedora web, web developer, email, telefone, mapa, localização">
   <meta name="author" content="Jane Doe">
 
   <!-- Bootstrap CSS -->
@@ -15,6 +15,9 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
 
   <!-- CSS Custom -->
   <link rel="stylesheet" href="css/style.css">
@@ -33,16 +36,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="projetosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Projetos
-            </a>
-            <ul class="dropdown-menu bg-dark">
-              <li><a class="dropdown-item text-success" href="projetos.html#frontend">Frontend</a></li>
-              <li><a class="dropdown-item text-success" href="projetos.html#backend">Back-end</a></li>
-              <li><a class="dropdown-item text-success" href="projetos.html#uxui">UX/UI</a></li>
-            </ul>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="projetos.html">Projetos</a></li>
           <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
           <li class="nav-item"><a class="nav-link active" href="contactos.html">Contactos</a></li>
         </ul>
@@ -50,126 +44,136 @@
     </div>
   </nav>
 
-  <section class="mb-5">
-  <h2 class="mb-4">O que dizem meus clientes</h2>
-  <div class="row">
+  <!-- Conteúdo -->
+  <main class="container mt-5 pt-5">
+    <h1 class="text-success text-center mb-4">Contacte-me</h1>
+    <p class="text-center">Preencha o formulário ou veja minha localização no mapa abaixo.</p>
 
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <img src="imagens/cliente1.jpg" class="card-img-top" alt="Imagem cliente 1">
-          <h5 class="card-title">José Silva</h5>
-          <p class="card-text" style="color: black;">"Satisfação e resultados mensuráveis"</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <img src="imagens/cliente2.jpg" class="card-img-top" alt="Imagem cliente 2">
-          <h5 class="card-title">Maria Campos</h5>
-          <p class="card-text" style="color: black;">"Eficiência e comunicação."</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <img src="imagens/cliente3.jpg" class="card-img-top" alt="Imagem cliente 3">
-          <h5 class="card-title">António Matos</h5>
-          <p class="card-text" style="color: black;">"Dedicação e inovação."</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-  <!-- Hero -->
-  <section class="container mt-5 pt-5 text-center">
-    <h1 class="text-success">Contacte-me</h1>
-    <p>Estou aqui para ajudá-lo. Entre em contacto comigo através do formulário abaixo ou pelos meus canais de comunicação.</p>
-    <a class="btn btn-success m-2" href="#form">Entre em contacto</a>
-    <a class="btn btn-outline-success m-2" href="https://wa.me/912345678"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-  </section>
-
-  <!-- Opções de contacto -->
-  <section class="container mt-5">
-    <h2 class="text-success text-center mb-4">Fale comigo</h2>
-    <div class="row text-center g-4">
-      <div class="col-md-4">
-        <i class="fa fa-phone fa-3x text-success mb-3"></i>
-        <h3>Telefone</h3>
-        <p>Ligue-me para obter suporte imediato</p>
-      </div>
-      <div class="col-md-4">
-        <i class="fa fa-envelope fa-3x text-success mb-3"></i>
-        <h3>E-mail</h3>
-        <p>Envie-me um email com as suas questões</p>
-      </div>
-      <div class="col-md-4">
-        <i class="fa fa-hashtag fa-3x text-success mb-3"></i>
-        <h3>Redes sociais</h3>
-        <p>Siga-me nas redes sociais para se manter informado</p>
-      </div>
-    </div>
-  </section>
-
- <section id="form" class="container mt-5">
-  <h2 class="text-success mb-4 text-center">Contacte-me</h2>
-  <div class="row justify-content-center">
-    <div class="col-lg-8">
+    <!-- Formulário -->
+    <section class="mb-5">
       <form class="bg-light p-4 rounded shadow">
-        
         <div class="mb-3">
           <label for="name" class="form-label">Nome:</label>
-          <input type="text" class="form-control" id="name" required>
+          <input type="text" id="name" class="form-control" required>
         </div>
-
-        <div class="mb-3">
-          <label for="birthDate" class="form-label">Data de Nascimento:</label>
-          <input type="date" class="form-control" id="birthDate" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="phone" class="form-label">Telefone:</label>
-          <input type="text" class="form-control" id="phone" required>
-        </div>
-
         <div class="mb-3">
           <label for="email" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="email" required>
+          <input type="email" id="email" class="form-control" required>
         </div>
-
         <div class="mb-3">
           <label for="message" class="form-label">Mensagem:</label>
-          <textarea class="form-control" id="message" rows="5" required></textarea>
+          <textarea id="message" class="form-control" rows="4" required></textarea>
         </div>
-
         <button type="submit" class="btn btn-success">Enviar</button>
       </form>
-    </div>
-  </div>
-</section>
+    </section>
 
+    <!-- Mapa -->
+    <section class="mb-5">
+      <h2 class="text-success mb-3">Localização</h2>
+      <div class="mb-3">
+        <label for="destination" class="form-label">Digite o seu endereço para calcular a rota:</label>
+        <input type="text" id="destination" class="form-control" placeholder="Ex: Porto, Portugal">
+        <button onclick="calculateRoute()" class="btn btn-primary mt-3">Calcular Rota</button>
+      </div>
+      <div id="map" style="height: 400px;" class="rounded shadow"></div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="mb-5">
+      <h2 class="text-success mb-4 text-center">Perguntas Frequentes</h2>
+      <div class="accordion" id="faqAccordion">
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              Quanto tempo leva o desenvolvimento de um site?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              O tempo varia conforme o projeto, mas normalmente entre 2 a 6 semanas.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              Posso pedir alterações após a entrega?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Sim! Incluo uma fase de revisão para garantir que o site fique exatamente como deseja.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+              Oferece suporte técnico após o projeto?
+            </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Sim, ofereço suporte por 30 dias após a entrega e planos de manutenção contínua.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="bg-dark text-light text-center py-3 mt-5">
+  <footer class="bg-dark text-light text-center py-4 mt-5">
     <p>&copy; 2025 Jane Doe - Todos os direitos reservados</p>
     <div>
       <a href="mailto:janedoe@mail.com" class="text-success mx-2"><i class="fa fa-envelope"></i></a>
       <a href="https://facebook.com" class="text-success mx-2"><i class="fab fa-facebook"></i></a>
       <a href="https://instagram.com" class="text-success mx-2"><i class="fab fa-instagram"></i></a>
-      <a href="https://wa.me/912345678" class="text-success mx-2"><i class="fa fa-phone"></i></a>
+      <a href="https://wa.me/912345678" class="text-success mx-2"><i class="fab fa-whatsapp"></i></a>
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
   <script src="js/validacao.js"></script>
+
+
+  <script>
+    var fixedLocation = L.latLng(38.736946, -9.142685); // Lisboa
+    var map = L.map('map').setView(fixedLocation, 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+    L.marker(fixedLocation).addTo(map).bindPopup("Jane Doe - Lisboa").openPopup();
+
+    function calculateRoute() {
+      var destination = document.getElementById("destination").value;
+      if (!destination) {
+        alert("Por favor, insira o seu endereço.");
+        return;
+      }
+      var url = 'https://nominatim.openstreetmap.org/search?format=json&q=' + destination;
+      fetch(url)
+        .then(response => response.json())
+        .then(json => {
+          if (json.length === 0) {
+            alert("Endereço não encontrado!");
+            return;
+          }
+          var lat = json[0].lat;
+          var lon = json[0].lon;
+          var routeUrl = 'https://www.openstreetmap.org/directions?engine=graphhopper_car&route=' +
+            fixedLocation.lat + ',' + fixedLocation.lng + ';' + lat + ',' + lon;
+          window.open(routeUrl, '_blank');
+        })
+        .catch(() => alert("Erro ao calcular rota!"));
+    }
+  </script>
 </body>
 </html>

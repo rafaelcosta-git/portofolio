@@ -1,0 +1,19 @@
+{
+  "clientes": [
+    {
+      "nome": "José Silva",
+      "opiniao": "Profissional excelente! Cumpriu todos os prazos e superou as expectativas.",
+      "imagem": "imagens/cliente1.jpg"
+    },
+    {
+      "nome": "Maria Campos",
+      "opiniao": "Adorei o design e a atenção aos detalhes. Super recomendo!",
+      "imagem": "imagens/cliente2.jpg"
+    },
+    {
+      "nome": "António Matos",
+      "opiniao": "Muito dedicado e comunicativo. O resultado ficou incrível!",
+      "imagem": "imagens/cliente3.jpg"
+    }
+  ]
+}
