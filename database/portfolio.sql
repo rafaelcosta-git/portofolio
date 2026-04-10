@@ -64,6 +64,20 @@ ALTER TABLE `projects`
 --
 ALTER TABLE `projects`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+-- -------------------------------
+-- Estrutura para tabela `users`
+-- -------------------------------
+
+CREATE TABLE `users` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `username` VARCHAR(50) UNIQUE NOT NULL,
+  `email` VARCHAR(100) UNIQUE NOT NULL,
+  `password_hash` VARCHAR(255) NOT NULL,
+  `user_type` ENUM('user', 'admin') NOT NULL DEFAULT 'user',
+  `profile_pic` VARCHAR(255) DEFAULT 'default-profile-pic.jpg'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

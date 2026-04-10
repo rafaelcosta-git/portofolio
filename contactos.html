@@ -25,25 +25,32 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand fw-bold text-success" href="index.html">Jane Doe</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
-          <li class="nav-item"><a class="nav-link" href="projetos.html">Projetos</a></li>
-          <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
-          <li class="nav-item"><a class="nav-link active" href="contactos.html">Contactos</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <ul class="navbar-nav ms-auto">
+  <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+  <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="projetosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Projetos
+    </a>
+    <ul class="dropdown-menu bg-dark">
+      <li><a class="dropdown-item text-success" href="projetos.html#frontend">Frontend</a></li>
+      <li><a class="dropdown-item text-success" href="projetos.html#backend">Back-end</a></li>
+      <li><a class="dropdown-item text-success" href="projetos.html#uxui">UX/UI</a></li>
+    </ul>
+  </li>
+  <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+  <li class="nav-item"><a class="nav-link" href="contactos.html">Contactos</a></li>
 
+  <li class="nav-item">
+    <a class="nav-link" href="register.php">Registo</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="login.php">
+      <i class="fa fa-user"></i> Login
+    </a>
+  </li>
+</ul>
+  
   <!-- Conteúdo -->
   <main class="container mt-5 pt-5">
     <h1 class="text-success text-center mb-4">Contacte-me</h1>
