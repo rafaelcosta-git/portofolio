@@ -53,7 +53,7 @@ $user = $result->fetch_assoc();
             margin-bottom: 25px;
         }
 
-        /* Foto de Perfil Redonda [cite: 45, 122] */
+        /* Foto de Perfil Redonda */
         .profile-img {
             width: 120px;
             height: 120px;
@@ -80,7 +80,7 @@ $user = $result->fetch_assoc();
             color: #CFF250;
         }
 
-        /* Botões de Ação [cite: 93, 98] */
+        /* Botões de Ação */
         .btn {
             display: block;
             width: 100%;
@@ -91,6 +91,7 @@ $user = $result->fetch_assoc();
             text-decoration: none;
             text-align: center;
             transition: 0.3s;
+            box-sizing: border-box;
         }
 
         .btn-home {
@@ -102,6 +103,17 @@ $user = $result->fetch_assoc();
             background-color: transparent;
             color: #CFF250;
             border: 1px solid #CFF250;
+        }
+
+        .btn-admin {
+            background-color: transparent;
+            color: #CFF250;
+            border: 1px solid #CFF250;
+        }
+
+        .btn-admin:hover {
+            background-color: #CFF250;
+            color: #212226;
         }
 
         .btn-logout {
@@ -128,6 +140,10 @@ $user = $result->fetch_assoc();
         </div>
 
         <a href="index.html" class="btn btn-home">Ir para o Website</a>
+        
+        <?php if ($user['user_type'] === 'admin'): ?>
+            <a href="admin.php" class="btn btn-admin">Ir para Administração</a>
+        <?php endif; ?>
         
         <a href="logout.php" class="btn btn-logout">Sair da Sessão</a>
     </div>
